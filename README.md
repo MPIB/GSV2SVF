@@ -9,6 +9,10 @@ The Caffe-SegNet deep convolutional framework is used to classify street images 
 ### 3.	Google Maps API license
 A Google Maps API is needed to explore Google Maps and perform GSV queries. The user may apply for a Google Maps API Key at https://developers.google.com/maps/documentation/javascript/get-api-key. 
 
+![image (1)](https://user-images.githubusercontent.com/42654538/221453209-a65a2584-6d5e-4e24-a068-76e442a8b058.png)
+
+Make sure you have "Maps JavaScript API" enabled on your Google Maps Platform.
+
 To make sure your Google API is working, you can verify by testing
 https://maps.googleapis.com/maps/api/streetview/metadata?location=40.7254686,-73.9966184&key=API_KEY
 Remember to replace "API_KEY" with your actual Google API Key. 
