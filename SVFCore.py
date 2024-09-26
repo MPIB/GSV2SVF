@@ -20,6 +20,7 @@ import shapefile
 import shutil
 from shutil import copyfile
 import json
+from skimage.util import img_as_ubyte
 
 class Config():
     apikey = ""
@@ -198,11 +199,11 @@ class GSVCapture():
         width, height = img.size
         nparr = np.asarray(img.copy())
         red, green, blue = img.split()
-        red = np.asarray(red)
+        red = np.array(red)
         red.flags.writeable = True
-        green = np.asarray(green)
+        green = np.array(green)
         green.flags.writeable = True
-        blue = np.asarray(blue)
+        blue = np.array(blue)
         blue.flags.writeable = True
         #green[np.where(green == 128)] = 0
         #blue[np.where(blue == 128)] = 0
@@ -292,7 +293,7 @@ class GSVCapture():
         segmentation_ind_3ch = segmentation_ind_3ch.transpose(1,2,0).astype(np.uint8)
         segmentation_rgb = np.zeros(segmentation_ind_3ch.shape, dtype=np.uint8)
         cv2.LUT(segmentation_ind_3ch,self.label_colours,segmentation_rgb)
-        scipy.misc.toimage(segmentation_rgb, cmin=0.0, cmax=255).save(outfile)
+        Image.fromarray(img_as_ubyte(segmentation_rgb)).save(outfile)
 
     def initialize(self,useCUDA):
         segnetModel = SVFHOME + "SegNet-Tutorial-master/Example_Models/segnet_model_driving_webdemo.prototxt"

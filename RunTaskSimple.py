@@ -1,9 +1,6 @@
 ﻿import sys
 import os
-SVFHOME = os.environ['SVFHOME']
-sys.path.insert(0, SVFHOME + 'PyCaffeCUDA/pycaffe')
 import SVFCore
-CacheDir = SVFHOME + "Cache\\Default\\"
 import time
 
 
