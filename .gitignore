@@ -1,6 +1,4 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/SegNet-Tutorial-master/Example_Models/segnet_weights_driving_webdemo.caffemodel
+﻿/SegNet-Tutorial-master/Example_Models/segnet_weights_driving_webdemo.caffemodel
 *.pyc
+env
+__pycache__
