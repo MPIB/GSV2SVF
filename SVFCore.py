@@ -59,6 +59,13 @@ class Config():
                     self.lon = splits[1].strip()
                  elif configName == "cuda" and int(splits[1].strip()) == 0:
                     self.cuda = False
+                 # override cuda config if CAFFE_BLEND env is set
+                 caffeVariant = os.getenv('CAFFE_BLEND', None)
+                 if caffeVariant is not None:
+                    if caffeVariant == 'cpu':
+                       self.cuda = False
+                    if caffeVariant == 'gpu':
+                       self.cuda = True
            except Exception as err:
              print(str(err)) 
 
